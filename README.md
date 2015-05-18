@@ -15,6 +15,7 @@ This is essentially a code kata. The goal is to implement a version of the zoo d
   * pass ````composer diagnose````.
   * correctly separate app dependencies from dev dependencies.
 1. This app must run on the command line, not in the browser. If necessary, use symfony/console.
+1. Document with phpdoc
 
 ## Challenge
 You are to develop an application for the management of a zoo. You will need to implement the zoo requirements in OOP. All normal best practices should be used. The following are the requirements for the zoo. 
