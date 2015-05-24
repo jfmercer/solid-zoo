@@ -1,4 +1,4 @@
 formatter.name: pretty
 suites:
-    todo_suite:
-        namespace: Jfmercer/Zoo
+    zoo_suite:
+        namespace: Mercer/Zoo
