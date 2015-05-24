@@ -14,6 +14,6 @@ class FishSpec extends ObjectBehavior
 
     function it_should_be_food()
     {
-        $this->shouldBeAnInstanceOf('Food');
+        $this->shouldImplement('Food');
     }
 }
