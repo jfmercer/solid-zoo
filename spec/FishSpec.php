@@ -11,4 +11,9 @@ class FishSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Fish');
     }
+
+    function it_should_be_food()
+    {
+        $this->shouldBeAnInstanceOf('Food');
+    }
 }

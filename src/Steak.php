@@ -1,5 +1,5 @@
 <?php
 
-class Steak
+class Steak implements Food
 {
 }

@@ -1,5 +1,5 @@
 <?php
 
-class Fish
+class Fish implements Food
 {
 }

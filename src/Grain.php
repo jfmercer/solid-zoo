@@ -1,5 +1,5 @@
 <?php
 
-class Grain
+class Grain implements Food
 {
 }

@@ -11,4 +11,9 @@ class SteakSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Steak');
     }
+
+    function it_should_be_food()
+    {
+        $this->shouldBeAnInstanceOf('Food');
+    }
 }
