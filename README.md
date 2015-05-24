@@ -12,7 +12,7 @@ This is essentially a code kata. The goal is to implement a version of the zoo d
 1. The code and tests must be readable. Clarity always has priority over syntactic sugar.
 1. All dependencies must be managed by composer.
 1. The composer.json must
-  * pass ````composer diagnose````.
+  * pass ````composer diagnose````, except for the xdebug warning.
   * correctly separate app dependencies from dev dependencies.
 1. This app must run on the command line, not in the browser. If necessary, use symfony/console.
 1. Document with phpdoc
