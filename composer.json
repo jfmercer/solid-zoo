@@ -1,0 +1,17 @@
+{
+    "name": "jfmercer/zoo",
+    "description": "A solution to a code kata that emphasizes SOLID principles.",
+    "type": "project",
+    "require-dev": {
+        "phpspec/phpspec": "^2.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John F. Mercer",
+            "email": "john.f.mercer@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
