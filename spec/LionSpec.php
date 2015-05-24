@@ -11,4 +11,9 @@ class LionSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Lion');
     }
+
+    function it_says_grrr()
+    {
+        $this->speak()->shouldReturn("Grrr");
+    }
 }
