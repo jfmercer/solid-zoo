@@ -1,4 +1,4 @@
 formatter.name: pretty
 suites:
     zoo_suite:
-        namespace: Mercer/Zoo
+        namespace: Mercer\Zoo
