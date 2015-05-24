@@ -2,9 +2,7 @@
     "name": "jfmercer/zoo",
     "description": "A solution to a code kata that emphasizes SOLID principles.",
     "type": "project",
-    "require-dev": {
-        "phpspec/phpspec": "^2.2"
-    },
+    "require-dev": {},
     "license": "MIT",
     "authors": [
         {
@@ -13,5 +11,12 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+      "phpspec/phpspec": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+          "":"src"
+        }
+    }
 }
