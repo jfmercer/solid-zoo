@@ -2,12 +2,27 @@
 
 namespace spec\Mercer\Zoo;
 
+use Mercer\Zoo\Fish;
+use Mercer\Zoo\Grain;
+use Mercer\Zoo\Steak;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-//use Mercer\Zoo;
+use Mercer\Zoo\Lion;
 
 class LionSpec extends ObjectBehavior
 {
+    function it_should_add_one_lion_when_constructed()
+    {
+        $this->getNumberOfLions()->shouldBe(1);
+    }
+
+    // Another method I can't test
+//    function it_should_delete_one_lion_when_destroyed()
+//    {
+//        unset($this);
+//        $this->getNumberOfLions()->shouldBe(1);
+//    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType('Mercer\Zoo\Lion');
@@ -25,22 +40,22 @@ class LionSpec extends ObjectBehavior
     // of eat(Food $food)
 //    function it_eats_food(Food $food)
 //    {
-////        $this->eat($food)->getEnergy()->shouldBeEqualTo(3);
-//        return true;
+//        $this->eat($food)->getEnergy()->shouldBeEqualTo(3);
 //    }
 
     // Again, I don't know how to test parameter types
     // for Steak, Fish, and Grain
-//    function it_eats_all_three_kinds_of_food(\Steak $steak)
+//    function it_eats_all_three_kinds_of_food(Steak $steak, Fish $fish, Grain $grain)
 //    {
 //        $this->eat($steak)->getEnergy()->shouldBeEqualTo(3);
-//        return true;
+//        $this->eat($fish)->getEnergy()->shouldBeEqualTo(6);
+//        $this->eat($grain)->getEnergy()->shouldBeEqualTo(9);
 //    }
     // eat() doesn't throw an exception when empty. WTF?
     // Is the type-hinting not working?
 //    function it_should_only_eat_Food()
 //    {
-//        $this->shouldThrow('\ErrorException')->duringEat(null);
+//        $this->shouldThrow('\InvalidArgumentException')->duringEat(null);
 //    }
 
     function eating_should_add_3_energy()

@@ -4,13 +4,17 @@ namespace Mercer\Zoo;
 
 class Lion
 {
-    protected $energy;
+    private $energy;
+
+    private static $number_of_lions = 0;
 
     public function __construct()
     {
         $this->energy = 0;
+        $this::$number_of_lions += 1;
     }
 
+    // Can't test parameter types
     public function eat(Food $food)
     {
         $this->energy += 3;
@@ -38,5 +42,14 @@ class Lion
 
     public function getEnergy(){
         return $this->energy;
+    }
+
+    public function getNumberOfLions(){
+        return $this::$number_of_lions;
+    }
+
+    // Can't test
+    public function __destroy(){
+        $this::$number_of_lions -= 1;
     }
 }
