@@ -5,15 +5,15 @@ namespace spec;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class GrainSpec extends ObjectBehavior
+class FishSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Grain');
+        $this->shouldHaveType('Fish');
     }
 
     function it_should_be_food()
     {
-        $this->shouldBeAnInstanceOf('Food');
+        $this->shouldImplement('Food');
     }
 }
