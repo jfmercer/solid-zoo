@@ -13,11 +13,18 @@ class Energy
         $this->energy = $energy;
     }
 
-    public function gain($amount){
+    public function gainEnergy($amount){
+        $this->guardAgainstInvalidArguments($amount);
+
         return new static($this->energy + $amount);
     }
 
-    public function lose($amount){
+    public function loseEnergy($amount){
+        $this->guardAgainstInvalidArguments($amount);
+
+        if($this->energy - $amount < 0)
+            return new static(0);
+
         return new static($this->energy - $amount);
     }
 
@@ -28,7 +35,11 @@ class Energy
 
     private function guardAgainstInvalidArguments($energy)
     {
-        if ( ! filter_var($energy, FILTER_VALIDATE_INT) || $energy < 0)
+        $options = [
+            "min_range" => 0,
+            "max_range" => PHP_INT_MAX
+        ];
+        if ( ! filter_var($energy, FILTER_VALIDATE_INT, [$options]))
             throw new \InvalidArgumentException("Energy must be an integer greater than or equal to 0");
     }
 }
