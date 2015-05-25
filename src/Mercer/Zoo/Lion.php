@@ -4,9 +4,9 @@ namespace Mercer\Zoo;
 
 class Lion
 {
-    protected $energy;
+    private $energy;
 
-    protected static $number_of_lions = 0;
+    private static $number_of_lions = 0;
 
     public function __construct()
     {
