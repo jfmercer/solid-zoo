@@ -8,14 +8,9 @@ use Mercer\Zoo\Energy;
 
 class EnergySpec extends ObjectBehavior
 {
-//    function let(Energy $energy)
-//    {
-//        $this->beConstructedWith($energy, true);
-//    }
-
-    function let()
+    function let($energyAsInteger = 0)
     {
-        $this->beConstructedWith(0, true);
+        $this->beConstructedWith($energyAsInteger, true);
     }
 
     // can't test
@@ -27,17 +22,18 @@ class EnergySpec extends ObjectBehavior
         return true;
     }
 
-    // can't test
-    function it_can_return_0()
+    function it_can_start_with_2_energy()
     {
-//        $this->getInteger()->shouldBeEqualTo(0);
-        return 0;
+        $this->let(2);
+        $this->getEnergyLevel()->shouldBeEqualTo(2);
     }
 
     // can't test
     function it_gains_2_energy()
     {
-//        $this->gainEnergy(2)->toInteger()->shouldBeEqualTO(2);
+//        $this->let(2);
+//        $this->gainEnergy(2);
+//        $this->getEnergyLevel()->shouldBeEqualTo(4);
         return true;
     }
 }

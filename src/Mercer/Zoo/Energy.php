@@ -13,22 +13,22 @@ class Energy
         $this->energy = $energy;
     }
 
-    public function gainEnergy($amount){
-        $this->guardAgainstInvalidArguments($amount);
+    public static function gainEnergy($amountGained){
+        self::guardAgainstInvalidArguments($amountGained);
 
-        return new static($this->energy + $amount);
+        return new static(self::getEnergyLevel() + $amountGained);
     }
 
-    public function loseEnergy($amount){
-        $this->guardAgainstInvalidArguments($amount);
+    public static function loseEnergy($amountLost){
+        self::guardAgainstInvalidArguments($amountLost);
 
-        if($this->energy - $amount < 0)
+        if(self::getEnergyLevel() - $amountLost < 0)
             return new static(0);
 
-        return new static($this->energy - $amount);
+        return new static(self::getEnergyLevel() - $amountLost);
     }
 
-    public function toInteger()
+    public function getEnergyLevel()
     {
         return $this->energy;
     }
