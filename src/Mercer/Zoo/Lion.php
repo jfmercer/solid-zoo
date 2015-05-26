@@ -48,8 +48,7 @@ class Lion
         return $this::$number_of_lions;
     }
 
-    // Can't test
-    public function __destroy(){
+    public function __destruct(){
         $this::$number_of_lions -= 1;
     }
 }

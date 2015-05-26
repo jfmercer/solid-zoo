@@ -13,13 +13,10 @@ class EnergySpec extends ObjectBehavior
         $this->beConstructedWith($energyAsInteger, true);
     }
 
-    // can't test
     function it_throws_an_exception_when_passed_invalid_parameter(Energy $energy)
     {
-//        $this->shouldThrow(new InvalidArgumentException("Energy must be an integer greater than or equal to 0"))->duringConstruct('3,-2');
-//        $this->beConstructedWith('dog', true)->shouldThrow(new InvalidArgumentException("Energy must be an integer greater than or equal to 0"));
-//        $this->beConstructedThrough('__construct', ['dog'])->shouldThrow(new \InvalidArgumentException("Energy must be an integer greater than or equal to 0"));
-        return true;
+        $this->shouldThrow(new \InvalidArgumentException("Energy must be an integer greater than or equal to 0"))
+             ->during('__construct', ['dog']);
     }
 
     function it_can_start_with_2_energy()
