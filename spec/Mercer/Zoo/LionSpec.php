@@ -3,11 +3,12 @@
 namespace spec\Mercer\Zoo;
 
 use Mercer\Zoo\Fish;
+use Mercer\Zoo\Food;
 use Mercer\Zoo\Grain;
+use Mercer\Zoo\Lion;
 use Mercer\Zoo\Steak;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Mercer\Zoo\Lion;
 
 class LionSpec extends ObjectBehavior
 {
@@ -36,23 +37,31 @@ class LionSpec extends ObjectBehavior
         $this->getInteger()->shouldBeInteger(getEnergy());
     }
 
-    // I couldn't find a way to test the parameter type
-    // of eat(Food $food)
-//    function it_eats_food(Food $food)
-//    {
-//        $this->eat($food)->getEnergy()->shouldBeEqualTo(3);
-//    }
+    function it_eats_food(Food $food)
+    {
+        $this->eat($food);
+        $this->getEnergy()->shouldBeEqualTo(3);
+    }
 
-    // Again, I don't know how to test parameter types
-    // for Steak, Fish, and Grain
-//    function it_eats_all_three_kinds_of_food(Steak $steak, Fish $fish, Grain $grain)
-//    {
-//        $this->eat($steak)->getEnergy()->shouldBeEqualTo(3);
-//        $this->eat($fish)->getEnergy()->shouldBeEqualTo(6);
-//        $this->eat($grain)->getEnergy()->shouldBeEqualTo(9);
-//    }
+    // This test doesn't really serve a purpose, the dependency is on the
+    // Food interface, not these concrete types, and that's been tested in
+    // the test above.
+    function it_eats_all_three_kinds_of_food(Steak $steak, Fish $fish, Grain $grain)
+    {
+        $this->eat($steak);
+        $this->getEnergy()->shouldBeEqualTo(3);
+        $this->eat($fish);
+        $this->getEnergy()->shouldBeEqualTo(6);
+        $this->eat($grain);
+        $this->getEnergy()->shouldBeEqualTo(9);
+    }
+
     // eat() doesn't throw an exception when empty. WTF?
     // Is the type-hinting not working?
+    //
+    // Typehinting is working but internally PHP is throwing an error rather
+    // than an exception. Don't bothing trying to test typehints, there's no
+    // need.
 //    function it_should_only_eat_Food()
 //    {
 //        $this->shouldThrow('\InvalidArgumentException')->duringEat(null);
