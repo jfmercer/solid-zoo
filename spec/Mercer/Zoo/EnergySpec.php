@@ -8,32 +8,36 @@ use Mercer\Zoo\Energy;
 
 class EnergySpec extends ObjectBehavior
 {
-    function let($energyAsInteger = 0)
+    const STARTING_ENERGY = 2;
+
+    function let()
     {
-        $this->beConstructedWith($energyAsInteger, true);
+        $this->beConstructedWith(self::STARTING_ENERGY);
     }
 
-    // can't test
-    function it_throws_an_exception_when_passed_invalid_parameter(Energy $energy)
+    function it_throws_an_exception_when_passed_invalid_parameter()
     {
-//        $this->shouldThrow(new InvalidArgumentException("Energy must be an integer greater than or equal to 0"))->duringConstruct('3,-2');
-//        $this->beConstructedWith('dog', true)->shouldThrow(new InvalidArgumentException("Energy must be an integer greater than or equal to 0"));
-//        $this->beConstructedThrough('__construct', ['dog'])->shouldThrow(new \InvalidArgumentException("Energy must be an integer greater than or equal to 0"));
-        return true;
+        $this->shouldThrow(new \InvalidArgumentException("Energy must be an integer greater than or equal to 0"))
+             ->during('__construct', ['dog']);
     }
 
-    function it_can_start_with_2_energy()
+    function it_can_return_its_energy()
     {
-        $this->let(2);
         $this->getEnergyLevel()->shouldBeEqualTo(2);
     }
 
-    // can't test
-    function it_gains_2_energy()
+    function it_can_produce_a_gained_energy_value()
     {
-//        $this->let(2);
-//        $this->gainEnergy(2);
-//        $this->getEnergyLevel()->shouldBeEqualTo(4);
-        return true;
+        $this->gainEnergy(3)->shouldBeLike(new Energy(self::STARTING_ENERGY + 3));
+    }
+
+    function it_can_produce_a_lost_energy_value()
+    {
+        $this->loseEnergy(1)->shouldBeLike(new Energy(self::STARTING_ENERGY - 1));
+    }
+
+    function it_can_returns_energy_of_zero_if_loss_is_greater_than_current()
+    {
+        $this->loseEnergy(10)->shouldBeLike(new Energy(0));
     }
 }
