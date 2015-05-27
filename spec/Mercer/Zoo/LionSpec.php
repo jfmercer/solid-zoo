@@ -31,30 +31,6 @@ class LionSpec extends ObjectBehavior
         $this->getEnergy()->shouldBeEqualTo(3);
     }
 
-    // This test doesn't really serve a purpose, the dependency is on the
-    // Food interface, not these concrete types, and that's been tested in
-    // the test above.
-    function it_eats_all_three_kinds_of_food(Steak $steak, Fish $fish, Grain $grain)
-    {
-        $this->eat($steak);
-        $this->getEnergy()->shouldBeEqualTo(3);
-        $this->eat($fish);
-        $this->getEnergy()->shouldBeEqualTo(6);
-        $this->eat($grain);
-        $this->getEnergy()->shouldBeEqualTo(9);
-    }
-
-    // eat() doesn't throw an exception when empty. WTF?
-    // Is the type-hinting not working?
-    //
-    // Typehinting is working but internally PHP is throwing an error rather
-    // than an exception. Don't bothing trying to test typehints, there's no
-    // need.
-//    function it_should_only_eat_Food()
-//    {
-//        $this->shouldThrow('\InvalidArgumentException')->duringEat(null);
-//    }
-
     function eating_should_add_3_energy()
     {
         $this->eat()->getEnergy()->shouldBeEqualTo(3);
