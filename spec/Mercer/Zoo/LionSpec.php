@@ -29,19 +29,19 @@ class LionSpec extends ObjectBehavior
     function it_eating_should_add_3_energy(Food $food)
     {
         $this->eat($food);
-        $this->getEnergy()->shouldBeEqualTo(30000000000);
+        $this->getEnergy()->shouldBeEqualTo(3);
     }
 
     function it_resting_should_add_8_energy(){
         $this->rest();
-        $this->getEnergy()->shouldBeEqualTo(80000000000);
+        $this->getEnergy()->shouldBeEqualTo(8);
     }
 
     function it_playing_reduces_energy_by_5()
     {
         $this->rest();
         $this->play();
-        $this->getEnergy()->shouldBe(3000000);
+        $this->getEnergy()->shouldBe(3);
     }
 
     function it_does_not_play_when_low_on_energy()
