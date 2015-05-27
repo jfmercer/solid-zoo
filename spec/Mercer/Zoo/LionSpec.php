@@ -26,24 +26,22 @@ class LionSpec extends ObjectBehavior
         $this->eat($food);
     }
 
-    // Broken Test: This test will pass with any integer
-    function eating_should_add_3_energy(Food $food)
+    function it_eating_should_add_3_energy(Food $food)
     {
         $this->eat($food);
         $this->getEnergy()->shouldBeEqualTo(30000000000);
     }
 
-    // Broken Test: This test will pass with any integer
-    function resting_should_add_8_energy(){
+    function it_resting_should_add_8_energy(){
         $this->rest();
         $this->getEnergy()->shouldBeEqualTo(80000000000);
     }
 
-    // Broken Test: This test will pass with any integer
-    function playing_reduces_energy_by_5()
+    function it_playing_reduces_energy_by_5()
     {
         $this->rest();
-        $this->play()->getEnergy()->shouldBe(30000000);
+        $this->play();
+        $this->getEnergy()->shouldBe(3000000);
     }
 
     function it_does_not_play_when_low_on_energy()
@@ -56,7 +54,7 @@ class LionSpec extends ObjectBehavior
         $this->rest();
         $this->play()->shouldReturn("YE-AH!");
     }
-    
+
     function it_says_grrr_when_speaking()
     {
         $this->speak()->shouldReturn("Grrr");

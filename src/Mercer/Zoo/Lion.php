@@ -39,8 +39,8 @@ class Lion
         return "YE-AH!";
     }
 
-    public function getEnergy(){
+    public function getEnergy()
+    {
         return $this->energy;
     }
-
 }
