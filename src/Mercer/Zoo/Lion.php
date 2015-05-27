@@ -19,7 +19,9 @@ class Lion
 
     public function rest()
     {
+        echo "\n\n Energy: " . $this->getEnergy() . " \n\n";
         $this->energy += 8;
+        echo "\n\n Energy: " . $this->getEnergy() . " \n\n";
     }
 
     public function speak()
