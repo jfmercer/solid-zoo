@@ -13,6 +13,11 @@ class LionSpec extends ObjectBehavior
         $this->shouldHaveType('Mercer\Zoo\Lion');
     }
 
+    function it_extends_the_animal_class()
+    {
+        $this->shouldHaveType('Mercer\Zoo\Animal');
+    }
+
     function its_initial_energy_is_zero(){
         $this->getEnergy()->shouldBeEqualTo(0);
     }

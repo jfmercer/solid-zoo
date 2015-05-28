@@ -2,7 +2,7 @@
 
 namespace Mercer\Zoo;
 
-class Lion
+class Lion implements Animal
 {
     private $energy;
 
@@ -11,17 +11,14 @@ class Lion
         $this->energy = 0;
     }
 
-    // Can't test parameter types
     public function eat(Food $food)
     {
-        $this->energy += 3;
+        $this->energy += Animal::EAT_ENERGY_DEFAULT;
     }
 
     public function rest()
     {
-        echo "\n\n Energy: " . $this->getEnergy() . " \n\n";
-        $this->energy += 8;
-        echo "\n\n Energy: " . $this->getEnergy() . " \n\n";
+        $this->energy += Animal::REST_ENERGY_DEFAULT;
     }
 
     public function speak()
@@ -31,10 +28,10 @@ class Lion
 
     public function play()
     {
-        if($this->energy < 5)
+        if($this->energy < Animal::PLAY_ENERGY_DEFAULT)
             return "I'm tired";
 
-        $this->energy -= 5;
+        $this->energy -= Animal::PLAY_ENERGY_DEFAULT;
 
         return "YE-AH!";
     }
