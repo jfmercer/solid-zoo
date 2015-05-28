@@ -2,38 +2,27 @@
 
 namespace Mercer\Zoo;
 
-class Lion implements Animal
+class Lion extends Animal
 {
-    private $energy;
-
-    public function __construct()
-    {
-        $this->energy = 0;
-    }
 
     public function eat(Food $food)
     {
-        $this->energy += Animal::EAT_ENERGY_DEFAULT;
+        parent::eat($food);
     }
 
     public function rest()
     {
-        $this->energy += Animal::REST_ENERGY_DEFAULT;
+        parent::rest();
     }
 
     public function speak()
     {
-        return Animal::SPEAK_WORD_DEFAULT;
+        return parent::speak();
     }
 
     public function play()
     {
-        if($this->energy < Animal::PLAY_ENERGY_DEFAULT)
-            return Animal::TIRED_WORD_DEFAULT;
-
-        $this->energy -= Animal::PLAY_ENERGY_DEFAULT;
-
-        return Animal::PLAY_WORD_DEFAULT;
+        return parent::play();
     }
 
     public function getEnergy()
