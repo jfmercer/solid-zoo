@@ -23,17 +23,17 @@ class Lion implements Animal
 
     public function speak()
     {
-        return "Grrr";
+        return Animal::SPEAK_WORD_DEFAULT;
     }
 
     public function play()
     {
         if($this->energy < Animal::PLAY_ENERGY_DEFAULT)
-            return "I'm tired";
+            return Animal::TIRED_WORD_DEFAULT;
 
         $this->energy -= Animal::PLAY_ENERGY_DEFAULT;
 
-        return "YE-AH!";
+        return Animal::PLAY_WORD_DEFAULT;
     }
 
     public function getEnergy()
