@@ -1,10 +1,10 @@
 {
     "private": true,
     "devDependencies": {
-        "gulp" : "~3.8",
-        "gulp-phpspec" : "~0.3",
-        "gulp-run" : "~1.6",
+        "gulp" : "~3.9.1",
+        "gulp-phpspec" : "~0.5.4",
+        "gulp-run" : "~1.7.1",
         "gulp-notify" : "~2.2",
-        "gulp-plumber" : "~1.0"
+        "gulp-plumber" : "~1.1.0"
     }
 }
